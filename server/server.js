@@ -9,7 +9,8 @@ const queriesArr = require('./data')
 const Query = require('./models/query')
 
 app.get('/', getAll)
-app.get('/:search', searchWord)
+app.get('/search/:search', searchWord)
+app.get('/random/:rand', randomResult)
 
 function getAll(req,res){
     const queryData = Query.all
@@ -18,15 +19,15 @@ function getAll(req,res){
 
 function searchWord(req, res){
     let requestedWord = req.params.search.toLowerCase()
-    console.log(requestedWord)
     let possibleResults = queriesArr.filter((query) => query.title.toLowerCase().includes(requestedWord))
-    console.log(possibleResults)
     res.json({results:possibleResults})
 }
 
 function randomResult(req, res){
-    let requestedWord = req.params.search.toLowerCase()
-    
+    let randomSearch = req.params.rand.toLowerCase()
+    let randomResults = queriesArr.filter((query) => query.title.toLowerCase().includes(randomSearch))
+    let result = randomResults[Math.floor(Math.random()*randomResults.length)]
+    res.json({result:result})
 }
 
 app.listen(port, ()=>{
