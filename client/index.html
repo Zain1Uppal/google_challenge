@@ -13,16 +13,20 @@
         <nav>
             <li class="leftNavBar"><a href="https://about.google">About</a></li>
             <li class="leftNavBar"><a href="https://store.google.com/GB">Store</a></li>
-            <li class="rightNavBar"><a href="https://mail.google.com">Gmail</a></li>
             <li class="rightNavBar"><a href="https://www.google.co.uk/imghp">Images</a></li>
+            <li class="rightNavBar"><a href="https://mail.google.com">Gmail</a></li>
         </nav>
     </header>
     <section class="searchArea">
         <img src="logo.png"/>
         <form action="./results.html" method="POST">
-            <input type="search" class="searchBar">
-            <input type="submit" class="button" name="Google Search" value="Google Search">
-            <input type="submit" class="button" name="I'm Feeling Lucky" value="I'm Feeling Lucky">
+            <div class="searchBar">
+                <i class="fas fa-search searchIcon"></i>
+                <input type="search">
+                <i class="fas fa-microphone micIcon"></i>
+            </div>
+            <input type="submit" name="Google Search" value="Google Search">
+            <input type="submit" name="I'm Feeling Lucky" value="I'm Feeling Lucky">
         </form>
     </section>
     <footer>
@@ -34,9 +38,9 @@
             <i class="fab fa-envira"></i>
             Carbon neutral since 2007
         </a>
-        <a class="rightFooterLink" href="https://policies.google.com/privacy">Privacy</a>
-        <a class="rightFooterLink" href="https://policies.google.com/terms">Terms</a>
         <a class="rightFooterLink" href="https://www.google.com/preferences">Settings</a>
+        <a class="rightFooterLink" href="https://policies.google.com/terms">Terms</a>
+        <a class="rightFooterLink" href="https://policies.google.com/privacy">Privacy</a>
     </footer>
 </body>
 </html>
