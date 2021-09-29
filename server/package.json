@@ -1,0 +1,31 @@
+{
+  "name": "google_challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --watchAll --silent ",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zain1Uppal/google_challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zain1Uppal/google_challenge/issues"
+  },
+  "homepage": "https://github.com/Zain1Uppal/google_challenge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^27.2.3",
+    "nodemon": "^2.0.13",
+    "supertest": "^6.1.6"
+  }
+}
