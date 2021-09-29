@@ -33,3 +33,4 @@ function randomResult(req, res){
 app.listen(port, ()=>{
     console.log(`on port ${port}`)
 })
+module.exports = app;
