@@ -5,7 +5,7 @@
 ### Installation
 
 * `git clone` or download the repository.
-* Navigate to the `server` directory using `cd /server`.
+* Navigate to the `server` directory using `cd server`.
 * Run `npm install` to install the dependencies.
 
 ### Usage
