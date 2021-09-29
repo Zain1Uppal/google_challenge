@@ -9,9 +9,9 @@ searchBtn.addEventListener('click', (e) => {
         .then(resp => resp.json())
         .then(resp => {
             for(let i = 0; i < resp.length; i++){
-                let result = document.getElementById('result').textContent = resp[i].title
+                document.getElementById('result').textContent = resp[i].title
+                document.getElementById('result').style.color = "black"
             }
-            return result
         })
 })
 
@@ -22,8 +22,7 @@ randomBtn.addEventListener('click', (e) => {
         .then(resp => resp.json())
         .then(resp => {
             for(let i = 0; i < resp.length; i++){
-                document.getElementById('result').textContent = resp[i].id
-                // document.getElementById('result').textContent = resp[i].title
+                document.getElementById('result').textContent = resp[i].title
             }
         })
 })
