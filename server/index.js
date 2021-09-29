@@ -1,3 +1,5 @@
-// const express = require('express')
-// const app = express();
-const server = require('./server')
+const server = require('./server');
+
+const port = process.env.PORT || 7000;
+
+server.listen(port, () => console.log(`Express server running on port ${port}`));

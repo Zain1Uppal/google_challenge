@@ -1,35 +1,34 @@
-const express = require('express')
-const app = express();
+const express = require('express');
 const cors = require('cors');
-app.use(express.json())
+const path = require('path');
+
+const app = express();
+app.use(express.json());
 app.use(cors());
-const port = process.env.PORT || 7000;
-const queriesArr = require('./data') 
 
-const Query = require('./models/query')
+const queriesArr = require('./data'); // Access to data
+const Query = require('./models/query'); // Access to Query class
 
-app.get('/', getAll)
-app.get('/search/:search', searchWord)
-app.get('/random/:rand', randomResult)
+app.get('/', getAll);
+app.get('/search/:search', searchWord);
+app.get('/random/:rand', randomResult);
 
-function getAll(req,res){
-    const queryData = Query.all
-    res.send(queryData)
-}
+function getAll(req, res){
+    const queryData = Query.all;
+    res.json({ data: queryData });
+};
 
 function searchWord(req, res){
-    let requestedWord = req.params.search.toLowerCase()
-    let possibleResults = queriesArr.filter((query) => query.title.toLowerCase().includes(requestedWord))
-    res.json({results:possibleResults})
-}
+    let requestedWord = req.params.search.toLowerCase();
+    let possibleResults = queriesArr.filter((query) => query.title.toLowerCase().includes(requestedWord) || query.description.toLowerCase().includes(requestedWord));
+    res.json({ results: possibleResults });
+};
 
 function randomResult(req, res){
-    let randomSearch = req.params.rand.toLowerCase()
-    let randomResults = queriesArr.filter((query) => query.title.toLowerCase().includes(randomSearch))
-    let result = randomResults[Math.floor(Math.random()*randomResults.length)]
-    res.json({result:result})
-}
+    let randomSearch = req.params.rand.toLowerCase();
+    let randomResults = queriesArr.filter((query) => query.title.toLowerCase().includes(randomSearch) || query.description.toLowerCase().includes(randomSearch));
+    let randomResult = randomResults[Math.floor(Math.random() * randomResults.length)];
+    res.json({ result: randomResult });
+};
 
-app.listen(port, ()=>{
-    console.log(`on port ${port}`)
-})
+module.exports = app;
