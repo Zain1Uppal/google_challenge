@@ -9,8 +9,9 @@ searchBtn.addEventListener('click', (e) => {
         .then(resp => resp.json())
         .then(resp => {
             for(let i = 0; i < resp.length; i++){
-                document.getElementById('result').textContent = resp[i].title
+                let result = document.getElementById('result').textContent = resp[i].title
             }
+            return result
         })
 })
 
