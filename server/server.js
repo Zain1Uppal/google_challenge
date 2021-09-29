@@ -21,14 +21,14 @@ function getAll(req, res){
 function searchWord(req, res){
     let requestedWord = req.params.search.toLowerCase();
     let possibleResults = queriesArr.filter((query) => query.title.toLowerCase().includes(requestedWord) || query.description.toLowerCase().includes(requestedWord));
-    res.json({ results: possibleResults });
+    res.send(possibleResults);
 };
 
 function randomResult(req, res){
     let randomSearch = req.params.rand.toLowerCase();
     let randomResults = queriesArr.filter((query) => query.title.toLowerCase().includes(randomSearch) || query.description.toLowerCase().includes(randomSearch));
     let randomResult = randomResults[Math.floor(Math.random() * randomResults.length)];
-    res.json({ result: randomResult });
+    res.send(randomResult );
 };
 
 module.exports = app;
